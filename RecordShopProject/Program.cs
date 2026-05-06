@@ -10,7 +10,7 @@ namespace RecordShopProject
         {
             var builder = WebApplication.CreateBuilder(args);
             string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-            builder.Services.AddDbContext<RecordShopContext>(options => options.UseSqlServer(connectionString));
+            builder.Services.AddDbContext<RecordShopContext>(options => options.UseInMemoryDatabase("RecordShopDB"));
             // Add services to the container.
 
             builder.Services.AddControllers();
